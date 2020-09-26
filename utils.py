@@ -1,1 +1,3 @@
-# Scripts para auxiliar main.py
+"""
+Módulo para auxiliar main.py.
+"""
