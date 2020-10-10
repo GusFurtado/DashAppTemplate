@@ -18,7 +18,7 @@ import plotly.io as pio
 import pandas as pd
 
 import utils
-from assets import fonts
+from utils import fonts
 from layouts import menu, app1, app2
 
 
