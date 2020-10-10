@@ -91,39 +91,39 @@ def render_app2():
 
 
 def pop_user():
-    flask.session.pop('autenticado', None)
+    flask.session.pop('authenticated', None)
     flask.session.pop('user', None)
     
 def user_auth(user, password):
-    # Auth process
+    # Authentication process
     return user == 'test'
 
 
 @menu_app.callback(
     [Output('user_alert', 'children'),
     Output('user_alert', 'is_open'),
-    Output('formulario_collapse', 'is_open'),
-    Output('atalho_collapse', 'is_open')],
+    Output('form_collapse', 'is_open'),
+    Output('links_collapse', 'is_open')],
     [Input('login_button', 'n_clicks')],
     [State('user_input', 'value'),
     State('password_input', 'value')])
-def autenticar_usuario(click, user, password):
+def authenticate_user(click, user, password):
 
     
     if click == 0:
-        if 'autenticado' in flask.session:
+        if 'authenticated' in flask.session:
             return None, False, False, True
         else:
             raise PreventUpdate
 
     else:
         if user_auth(user, password):
-            flask.session['autenticado'] = True
+            flask.session['authenticated'] = True
             flask.session['user'] = user
             return None, False, False, True
         else:
             pop_user()
-            return f"Acesso negado ao usuário '{user}'", True, True, False
+            return f"Access denied for '{user}'", True, True, False
 
 
 
@@ -131,7 +131,7 @@ def autenticar_usuario(click, user, password):
     Output('location', 'pathname'),
     [Input('footer', 'n_clicks')])
 def validate_user_app1(click):
-    if 'autenticado' not in flask.session:
+    if 'authenticated' not in flask.session:
         return '/menu'
     raise PreventUpdate
 
@@ -139,7 +139,7 @@ def validate_user_app1(click):
     Output('location', 'pathname'),
     [Input('footer', 'n_clicks')])
 def validate_user_app2(click):
-    if 'autenticado' not in flask.session:
+    if 'authenticated' not in flask.session:
         return '/menu'
     raise PreventUpdate
 

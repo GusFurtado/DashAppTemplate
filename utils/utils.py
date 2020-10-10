@@ -1,3 +1,3 @@
 """
-Módulo para auxiliar main.py.
+Auxiliar module for main.py
 """

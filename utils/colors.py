@@ -1,5 +1,5 @@
 '''
-Objeto paleta de cores.
+Color palette object
 '''
 
 

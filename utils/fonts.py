@@ -1,5 +1,5 @@
 """
-Módulo para importação de fonts.
+Webfonts hrefs
 """
 
 

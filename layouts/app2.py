@@ -1,5 +1,5 @@
 """
-Layout do App 2.
+App 2 Layout
 """
 
 

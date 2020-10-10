@@ -3,7 +3,7 @@ import dash_bootstrap_components as dbc
 
 
 
-titulo = dbc.Row(
+title = dbc.Row(
     html.H1(
         'App',
         className = "display-3",
@@ -19,7 +19,7 @@ titulo = dbc.Row(
 
 user_alert = dbc.Toast(
     id = 'user_alert',
-    header = 'Usuário não validado',
+    header = 'User not authenticated',
     is_open = False,
     dismissable = True,
     icon = 'danger',
@@ -31,15 +31,15 @@ user_alert = dbc.Toast(
 
 
 
-formulario = dbc.Col([
+form = dbc.Col([
 
     dbc.Form([
 
-        # Usuário
+        # Username
         dbc.FormGroup(
             [
                 dbc.Label(
-                    'Usuário',
+                    'Username',
                     html_for = 'user_input',
                     style = {
                         'font-size': 14,
@@ -50,7 +50,7 @@ formulario = dbc.Col([
                 dbc.Input(
                     type = 'text',
                     id = 'user_input',
-                    placeholder = 'Usuário de rede',
+                    placeholder = 'Username',
                     autoComplete = True
                 )
             ]
@@ -60,7 +60,7 @@ formulario = dbc.Col([
         dbc.FormGroup(
             [
                 dbc.Label(
-                    'Senha',
+                    'Password',
                     html_for = 'password_input',
                     style = {
                         'font-size': 14,
@@ -71,7 +71,7 @@ formulario = dbc.Col([
                 dbc.Input(
                     type = "password",
                     id = 'password_input',
-                    placeholder = "Senha da rede",
+                    placeholder = "Password",
                 ),
             ]
         ),
@@ -95,7 +95,7 @@ formulario = dbc.Col([
 
 
 
-atalhos = dbc.Col([
+links = dbc.Col([
     dbc.Button(
         [html.I(className="fa fa-flask mr-2"), html.Span('App 1')],
         color = 'primary',
@@ -113,19 +113,19 @@ atalhos = dbc.Col([
 
 layout = html.Div(
     dbc.Container([
-        titulo,
+        title,
         dbc.Row([
             dbc.Collapse(
-                formulario,
-                id = 'formulario_collapse',
+                form,
+                id = 'form_collapse',
                 is_open = True,
                 style = {
                     'width': 400
                 }
             ),
             dbc.Collapse(
-                atalhos,
-                id = 'atalho_collapse',
+                links,
+                id = 'links_collapse',
                 is_open = False
             )
         ],
